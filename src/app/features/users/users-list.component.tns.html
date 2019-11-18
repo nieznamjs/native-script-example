@@ -1,0 +1,13 @@
+<ActionBar title="Users"></ActionBar>
+
+<ListView [items]="users$ | async">
+    <ng-template let-user="item">
+        <FlexboxLayout class="list-item">
+            <Label [text]="user.name"></Label>
+
+            <Button text="Show details" [nsRouterLink]="[user.id, 'details']"></Button>
+        </FlexboxLayout>
+    </ng-template>
+</ListView>
+
+<ActivityIndicator [busy]="!(users$ | async)" width="50"></ActivityIndicator>

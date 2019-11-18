@@ -1,0 +1,15 @@
+<h1>
+    Users
+</h1>
+
+<ul *ngIf="users$ | async as users; else loadingIndicator" class="list">
+    <li *ngFor="let user of users" class="list-item">
+        <span>{{ user.name }}</span>
+
+        <a [routerLink]="[user.id, 'details']">Show details</a>
+    </li>
+</ul>
+
+<ng-template #loadingIndicator>
+    Loading...
+</ng-template>

@@ -1,0 +1,10 @@
+<ActionBar title="User's details"></ActionBar>
+
+<StackLayout *ngIf="user$ | async as user" class="wrapper">
+    <Label [text]="'Name:' + user.name"></Label>
+    <Label [text]="'Username: ' + user.username"></Label>
+    <Label [text]="'E-mail: ' + user.email"></Label>
+    <Label [text]="'Phone: ' + user.phone"></Label>
+</StackLayout>
+
+<ActivityIndicator [busy]="!(user$ | async)" width="50"></ActivityIndicator>

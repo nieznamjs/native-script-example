@@ -1,0 +1,16 @@
+<a routerLink="/users">
+    Go back
+</a>
+
+<div *ngIf="user$ | async as user; else loadingIndicator">
+    <span class="detail">Name: {{ user.name }}</span>
+    <span class="detail">Username: {{ user.username }}</span>
+    <span class="detail">E-mail: {{ user.email }}</span>
+    <span class="detail">Phone: {{ user.phone }}</span>
+</div>
+
+<ng-template #loadingIndicator>
+    <div>
+        Loading...
+    </div>
+</ng-template>
